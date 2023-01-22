@@ -27,7 +27,7 @@ const calculateTranstaleValue = (overflowContainer: HTMLElement, containerItem: 
     return translateValue;
 };
 
-const parseTranslateValue = (str: string): number => {
+export const parseTranslateValue = (str: string): number => {
     if (!str) return 0;
     const openBracketIndex = str.indexOf("(");
     const value = str.slice(openBracketIndex + 1, str.length - 3);

@@ -3,6 +3,7 @@ import { Direction } from "./task/task-list.js";
 import { fillTasksList } from "./task/fill.js";
 import { stepProgressHandler } from "./task/handlers/progress-bar-handler.js";
 import { stepContainerHandler } from "./task/handlers/container-handler.js";
+import { resizeHandler } from "./task/handlers/resize-handler.js";
 
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
@@ -28,4 +29,4 @@ const handlePrevButtonClick = () => {
     moveContainer(Direction.Prev);
 };
 
-// window.onresize = () => console.log(123)
+// window.addEventListener("resize", resizeHandler(descriptionsContainer));

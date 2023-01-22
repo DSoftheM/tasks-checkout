@@ -19,7 +19,7 @@ const calculateTranstaleValue = (overflowContainer, containerItem) => {
     const translateValue = (overflowContainer.clientWidth - containerItem.clientWidth) / 2 + containerItem.clientWidth;
     return translateValue;
 };
-const parseTranslateValue = (str) => {
+export const parseTranslateValue = (str) => {
     if (!str)
         return 0;
     const openBracketIndex = str.indexOf("(");

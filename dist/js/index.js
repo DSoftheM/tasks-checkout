@@ -21,5 +21,5 @@ const handlePrevButtonClick = () => {
     moveProgress(Direction.Prev);
     moveContainer(Direction.Prev);
 };
-// window.onresize = () => console.log(123)
+// window.addEventListener("resize", resizeHandler(descriptionsContainer));
 //# sourceMappingURL=index.js.map
