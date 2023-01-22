@@ -1,10 +1,10 @@
 import { setProgressLineWidth, fillPoint, clearPoint } from "../progress-bar.js";
 import { Direction } from "../task-list.js";
 
-export const stepProgressHandler = (pointsContainer: HTMLElement, line: HTMLElement) => {
+export const stepProgressHandler = (pointsContainer: HTMLElement, line: HTMLElement, currentStep: number) => {
+    console.log(currentStep);
     const taskCount = pointsContainer?.childElementCount || 0;
     const valueByOneStep = 100 / (taskCount - 1);
-    let currentStep = 0;
     return (stepDirection: Direction) => {
         switch (stepDirection) {
             case Direction.Next: {

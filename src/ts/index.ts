@@ -1,9 +1,7 @@
 import { tasks } from "./task.js";
 import { Direction } from "./task/task-list.js";
 import { fillTasksList } from "./task/fill.js";
-import { stepProgressHandler } from "./task/handlers/progress-bar-handler.js";
-import { stepContainerHandler } from "./task/handlers/container-handler.js";
-import { resizeHandler } from "./task/handlers/resize-handler.js";
+import { HandlerManager } from "./task/handlers/handler-manager.js";
 
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
@@ -13,8 +11,11 @@ const pointsProgressContainer = document.querySelector(".progress-bar__ul") as H
 
 fillTasksList(tasks, pointsProgressContainer, descriptionsContainer);
 
-const moveProgress = stepProgressHandler(pointsProgressContainer, line);
-const moveContainer = stepContainerHandler(descriptionsContainer);
+const handlerManager = new HandlerManager();
+
+const moveProgress = handlerManager.getProgressBarHandler(pointsProgressContainer, line);
+const moveContainer = handlerManager.getContainerHandler(descriptionsContainer);
+const resizeDescriptions = handlerManager.getResizeHandler(descriptionsContainer);
 
 nextButton?.addEventListener("click", (e) => handleNextButtonClick());
 prevButton?.addEventListener("click", (e) => handlePrevButtonClick());
@@ -29,4 +30,4 @@ const handlePrevButtonClick = () => {
     moveContainer(Direction.Prev);
 };
 
-// window.addEventListener("resize", resizeHandler(descriptionsContainer));
+window.addEventListener("resize", resizeDescriptions);

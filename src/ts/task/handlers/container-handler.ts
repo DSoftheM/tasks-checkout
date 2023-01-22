@@ -1,8 +1,7 @@
 import { Direction, moveContainerBackward, moveContainerForward } from "../task-list.js";
 
-export const stepContainerHandler = (container: HTMLElement) => {
+export const stepContainerHandler = (container: HTMLElement, currentStep: number) => {
     const taskCount = container?.childElementCount || 0;
-    let currentStep = 0;
     return (direction: Direction) => {
         switch (direction) {
             case Direction.Next:
