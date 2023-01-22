@@ -1,21 +1,17 @@
 import { setProgressLineWidth, fillPoint, clearPoint } from "../progress-bar.js";
 import { Direction, moveContainerBackward, moveContainerForward, parseTranslateValue } from "../task-list.js";
-
 export class Tasks {
-    private currentStep: number = 0;
-    private prevWidth: number = window.visualViewport.width;
-
-    constructor(
-        private taskCount: number,
-        private pointsContainer: HTMLElement,
-        private line: HTMLElement,
-        private overflowContainer: HTMLElement,
-        private elementToCorrent: HTMLElement
-    ) {
+    constructor(taskCount, pointsContainer, line, overflowContainer, elementToCorrent) {
+        this.taskCount = taskCount;
+        this.pointsContainer = pointsContainer;
+        this.line = line;
+        this.overflowContainer = overflowContainer;
+        this.elementToCorrent = elementToCorrent;
+        this.currentStep = 0;
+        this.prevWidth = window.visualViewport.width;
         window.addEventListener("resize", () => this.rezise());
     }
-
-    public stepHandler(stepDirection: Direction) {
+    stepHandler(stepDirection) {
         switch (stepDirection) {
             case Direction.Next:
                 if (this.currentStep < this.taskCount) {
@@ -31,13 +27,11 @@ export class Tasks {
                     this.currentStep--;
                 }
                 break;
-
             default:
                 break;
         }
     }
-
-    private rezise() {
+    rezise() {
         // todo: если на 1 ресайзить
         if (this.currentStep > 0) {
             const currentWidth = window.visualViewport.width;
@@ -47,8 +41,7 @@ export class Tasks {
             this.elementToCorrent.style.transform = `translateX(${currentTranslateValue + offset}px)`;
         }
     }
-
-    private moveProgress(direction: Direction) {
+    moveProgress(direction) {
         const taskCount = this.pointsContainer.childElementCount || 0;
         const valueByOneStep = 100 / (taskCount - 1);
         switch (direction) {
@@ -56,7 +49,8 @@ export class Tasks {
                 if (this.currentStep === 0) {
                     setProgressLineWidth(valueByOneStep / 4, this.line);
                     fillPoint(this.pointsContainer, 0);
-                } else {
+                }
+                else {
                     setProgressLineWidth(valueByOneStep, this.line);
                     fillPoint(this.pointsContainer, this.currentStep);
                 }
@@ -66,7 +60,8 @@ export class Tasks {
                 if (this.currentStep >= taskCount) {
                     setProgressLineWidth((-valueByOneStep * 3) / 4, this.line);
                     clearPoint(this.pointsContainer, this.currentStep - 1);
-                } else {
+                }
+                else {
                     setProgressLineWidth(-valueByOneStep, this.line);
                     clearPoint(this.pointsContainer, this.currentStep - 1);
                 }
@@ -74,8 +69,7 @@ export class Tasks {
             }
         }
     }
-
-    private moveContainer(direction: Direction) {
+    moveContainer(direction) {
         switch (direction) {
             case Direction.Next:
                 moveContainerForward(this.overflowContainer);
@@ -88,3 +82,4 @@ export class Tasks {
         }
     }
 }
+//# sourceMappingURL=handler-manager.js.map
