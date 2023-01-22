@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  font-family: sans-serif;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  padding: 100px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.rounded-block {
+  padding: 10px 20px;
+  background-color: var(--task_header_bg);
+  display: inline-block;
+  border-radius: 10px;
+}
+.rounded-block_button {
+  background-color: var(--task_answer_btn_bg);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.rounded-block_button:hover {
+  background-color: var(--task_button_next);
+}
+.rounded-block_answer {
+  padding: 10px 40px;
+}
+
+.task {
+  background-color: var(--task_bg);
+  overflow: hidden;
+}
+.task__header {
+  background-color: var(--task_header_bg);
+  border-radius: 0px 0px 10px 10px;
+  padding: 30px 200px;
+  -webkit-box-shadow: 0px 2px 12px 0px black;
+          box-shadow: 0px 2px 12px 0px black;
+}
+.task__body {
+  padding: 20px 30px;
+}
+.task__item > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+.task__descriptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  gap: 30px;
+}
+.task__description {
+  min-width: 100%;
+  background-color: var(--task_header_bg);
+  border-radius: 10px;
+  min-height: 300px;
+  padding: 10px 20px;
+}
+
+.bottom-task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 30px;
+}
+.bottom-task__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: var(--task_answer_bg);
+}
+:root {
+  --task_bg: rgb(194, 108, 108);
+  --task_header_bg: #797daf;
+  --task_rounded_block: #E7E5E5;
+  --task_answer_bg: #E7E5E5;
+  --task_answer_btn_bg: #E7E5E5;
+  --task_button_next: #53A318;
+}
+
+:root {
+  --point_border: #fff;
+  --point_background: #E7E5E5;
+  --line_progress: rgb(116, 224, 72);
+}
+
+.progress-bar {
+  isolation: isolate;
+  position: relative;
+}
+.progress-bar__line {
+  -webkit-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  z-index: -1;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0%;
+  height: 3px;
+  background-color: var(--line_progress);
+}
+.progress-bar__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.progress-bar__point {
+  -webkit-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  -o-transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+  background-color: var(--point_background);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--point_border);
+}

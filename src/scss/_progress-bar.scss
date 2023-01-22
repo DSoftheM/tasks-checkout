@@ -1,0 +1,39 @@
+:root {
+    --point_border: #fff;
+    --point_background: #E7E5E5;
+    --line_progress: rgb(116, 224, 72);
+}
+
+.progress-bar {
+    isolation: isolate;
+    position: relative;
+
+    &__line  {
+        transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+        z-index: -1;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0%;
+        height: 3px;
+        background-color: var(--line_progress);
+    }
+
+    // .progress-bar__ul
+    &__ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .progress-bar__point
+    &__point {
+        transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+        background-color: var(--point_background);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 3px solid var(--point_border);
+    }
+}

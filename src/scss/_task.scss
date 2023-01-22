@@ -1,0 +1,89 @@
+
+.rounded-block {
+    padding: 10px 20px;
+    background-color: var(--task_header_bg);
+    display: inline-block;
+    border-radius: 10px;
+    
+    &_button {
+        background-color: var(--task_answer_btn_bg);
+        transition: all 0.3s ease 0s;
+    }
+
+    &_button:hover {
+        background-color: var(--task_button_next);
+    }
+
+    &_answer {
+        padding: 10px 40px;
+    }
+}
+
+.task {
+    background-color: var(--task_bg);
+    overflow: hidden;
+
+    
+
+    // .task__header
+    &__header {
+        background-color: var(--task_header_bg);
+        border-radius: 0px 0px 10px 10px;
+        padding: 30px 200px;
+        box-shadow: 0px 2px 12px 0px black;
+    }
+
+    // .task__body
+    &__body {
+        padding: 20px 30px;
+        
+    }
+
+    &__item {
+        &>*:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    // .task__order
+    &__order {}
+
+    // .task__descriptions
+    &__descriptions {
+        display: flex;
+        transition: all 0.5s cubic-bezier(1, 0, 0.5, 1) 0s;
+        gap: 30px;
+    }
+
+    // .task__description
+    &__description {
+        min-width: 100%;
+        background-color: var(--task_header_bg);
+        border-radius: 10px;
+        min-height: 300px;
+        padding: 10px 20px;
+    }
+}
+
+
+.bottom-task {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    // .bottom-task__left
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-radius: 10px;
+        flex-grow: 1;
+        background-color: var(--task_answer_bg);
+    }
+
+    // .bottom-task__answer
+    &__answer {}
+
+    // .bottom-task__right
+    &__right {}
+}

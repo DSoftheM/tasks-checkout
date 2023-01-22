@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    padding: 100px;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
